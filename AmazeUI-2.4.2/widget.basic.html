@@ -1,0 +1,468 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze UI Widget</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    html,
+    body,
+    .page {
+      height: 100%;
+    }
+
+    #wrapper {
+      position: absolute;
+      top: 49px;
+      bottom: 49px;
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+      padding: 0 0;
+      background-color: #f8f8f8;
+    }
+
+    .am-list {
+      margin: 0;
+      padding: 0 8px;
+    }
+
+    .am-list > li {
+      background: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .pull-action {
+      text-align: center;
+      height: 45px;
+      line-height: 45px;
+      color: #999;
+    }
+
+    .pull-action .am-icon-spin {
+      display: none;
+    }
+
+    .pull-action.loading .am-icon-spin {
+      display: block;
+    }
+
+    .pull-action.loading .pull-label {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<!-- Header -->
+<header data-am-widget="header" class="am-header am-header-default">
+  <h1 class="am-header-title">
+    <a href="#title-link">Amaze UI</a>
+  </h1>
+</header>
+
+<!-- Menu -->
+<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+  <a href="javascript: void(0)" class="am-menu-toggle">
+    <i class="am-menu-toggle-icon am-icon-bars"></i>
+  </a>
+  <div class="am-offcanvas">
+    <div class="am-offcanvas-bar">
+      <ul class="am-menu-nav sm-block-grid-1">
+        <li class="am-parent">
+          <a href="##">公司</a>
+          <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+            <li class="">
+              <a href="##">公司</a>
+            </li>
+            <li class="">
+              <a href="##">人物</a>
+            </li>
+            <li class="">
+              <a href="##">趋势</a>
+            </li>
+            <li class="">
+              <a href="##">投融资</a>
+            </li>
+            <li class="">
+              <a href="##">创业公司</a>
+            </li>
+            <li class="">
+              <a href="##">创业人物</a>
+            </li>
+            <li class="am-menu-nav-channel">
+              <a href="##" title="公司">进入栏目 &raquo;</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-parent">
+          <a href="##">人物</a>
+          <ul class="am-menu-sub am-collapse  sm-block-grid-3 ">
+            <li class="">
+              <a href="##">公司</a>
+            </li>
+            <li class="">
+              <a href="##">人物</a>
+            </li>
+            <li class="">
+              <a href="##">趋势</a>
+            </li>
+            <li class="">
+              <a href="##">投融资</a>
+            </li>
+            <li class="">
+              <a href="##">创业公司</a>
+            </li>
+            <li class="">
+              <a href="##">创业人物</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-parent">
+          <a href="#c3">趋势</a>
+          <ul class="am-menu-sub am-collapse am-avg-sm-4">
+            <li class="">
+              <a href="##">公司</a>
+            </li>
+            <li class="">
+              <a href="##">人物</a>
+            </li>
+            <li class="">
+              <a href="##">趋势</a>
+            </li>
+            <li class="">
+              <a href="##">投融资</a>
+            </li>
+            <li class="">
+              <a href="##">创业公司</a>
+            </li>
+            <li class="">
+              <a href="##">创业人物</a>
+            </li>
+            <li class="am-menu-nav-channel">
+              <a href="#c3" title="趋势">泥煤 &raquo;</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-parent">
+          <a href="##">投融资</a>
+          <ul class="am-menu-sub am-collapse am-avg-sm-3">
+            <li class="">
+              <a href="##">公司</a>
+            </li>
+            <li class="">
+              <a href="##">人物</a>
+            </li>
+            <li class="">
+              <a href="##">趋势</a>
+            </li>
+            <li class="">
+              <a href="##">投融资</a>
+            </li>
+            <li class="">
+              <a href="##">创业公司</a>
+            </li>
+            <li class="">
+              <a href="##">创业人物</a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="##">创业公司</a>
+        </li>
+        <li class="">
+          <a href="##">创业人物</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div id="wrapper" data-am-widget="list_news" class="am-list-news am-list-news-default">
+  <div class="am-list-news-bd">
+  	<div class="pull-action loading" id="pull-down">
+        <span class="am-icon-arrow-down pull-label"
+              id="pull-down-label"> 下拉刷新</span>
+        <span class="am-icon-spinner am-icon-spin"></span>
+    </div>
+  <!-- Slider -->
+	<div id="silder" data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
+	  <ul class="am-slides">
+	    <li>
+	      <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+	    </li>
+	    <li>
+	      <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+	    </li>
+	    <li>
+	      <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+	    </li>
+	    <li>
+	      <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+	    </li>
+	  </ul>
+	</div>
+	<!--列表标题-->
+	<div class="am-list-news-hd am-cf">
+	    <!--带更多链接-->
+	    <a href="###">
+	      <h2>今日新闻</h2>
+	    </a>
+	</div>
+	<!-- List -->
+    <ul class="am-list" id="events-list">
+      <!--缩略图在标题左边-->
+      <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="http://www.douban.com/online/11614662/">
+            <img src="http://img5.douban.com/lpic/o636459.jpg" alt="我很囧，你保重....晒晒旅行中的那些囧！"
+              />
+          </a>
+        </div>
+        <div class="am-u-sm-8 am-list-main">
+          <h3 class="am-list-item-hd">
+            <a href="http://www.douban.com/online/11614662/">我很囧，你保重....晒晒旅行中的那些囧！</a>
+          </h3>
+          <div class="am-list-item-text">囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》http://book.douban.com/subject/25711202/为“想读”“在读”或“读过”，有机会获得此书本活动进行3个月，每月送出三本书。会有不定期bonus！</div>
+        </div>
+      </li>
+      <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="http://www.douban.com/online/11624755/">
+            <img src="http://img3.douban.com/lpic/o637240.jpg" alt="我最喜欢的一张画" />
+          </a>
+        </div>
+        <div class="am-u-sm-8 am-list-main">
+          <h3 class="am-list-item-hd">
+            <a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a>
+          </h3>
+          <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
+        </div>
+      </li>
+      <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+      	<div class="am-u-sm-4 am-list-thumb">
+          <a href="http://www.douban.com/online/11624755/">
+            <img src="http://img3.douban.com/lpic/o638852.jpg" alt="我最喜欢的一张画" />
+          </a>
+        </div>
+        <div class="am-u-sm-8 am-list-main">
+          <h3 class="am-list-item-hd">
+            <a href="http://www.douban.com/online/11645411/">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
+          </h3>
+          <div class="am-list-item-text">还在苦恼圣诞礼物再也玩儿不出新意？快来抢2013最炫彩的跨国圣诞礼物！【参与方式】1.关注“UniqueWay无二之旅”豆瓣品牌小站http://brand.douban.com/uniqueway/2.上传一张**本人**在旅行中色彩最浓郁、最丰富的照片（色彩包含取景地、周边事物、服装饰品、女生彩妆等等，发挥你们无穷的创意想象力哦！^^）一定要有本人出现喔！3.
+            在照片下方，附上一句旅行宣言作为照片说明。 成功参与活动！* 听他们刚才说，上传照片的次</div>
+        </div>
+      </li>
+    </ul>
+    <div class="pull-action" id="pull-up">
+        <span class="am-icon-arrow-up pull-label"
+              id="pull-up-label"> 上拉加载更多</span>
+        <span class="am-icon-spinner am-icon-spin"></span>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Navbar -->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "
+     id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4">
+    <li>
+      <a href="tel:123456789">
+        <span class="am-icon-phone"></span>
+        <span class="am-navbar-label">呼叫</span>
+      </a>
+    </li>
+    <li data-am-navbar-share>
+      <a href="###">
+        <span class="am-icon-share-square-o"></span>
+        <span class="am-navbar-label">分享</span>
+      </a>
+    </li>
+    <li data-am-navbar-qrcode>
+      <a href="###">
+        <span class="am-icon-qrcode"></span>
+        <span class="am-navbar-label">二维码</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/allmobilize/amazeui">
+        <span class="am-icon-github"></span>
+        <span class="am-navbar-label">GitHub</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script type="text/x-handlebars-template" id="tpi-list-item">
+  {{#each this}}
+ 	<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-id="{{id}}">
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="http://www.douban.com/online/11624755/">
+            <img src="http://img3.douban.com/lpic/o637240.jpg" alt="我最喜欢的一张画" />
+          </a>
+        </div>
+        <div class="am-u-sm-8 am-list-main">
+          <h3 class="am-list-item-hd">
+            <a href="http://www.douban.com/online/11624755/">{{title}}</a>
+          </h3>
+          <div class="am-list-item-text">{{content}}</div>
+        </div>
+    </li>
+  {{/each}}
+</script>
+<script>
+(function($) {
+    var EventsList = function(element, options) {
+      var $main = $('#wrapper');
+      var $list = $main.find('#events-list');
+      var $pullDown = $main.find('#pull-down');
+      var $pullDownLabel = $main.find('#pull-down-label');
+      var $pullUp = $main.find('#pull-up');
+      var topOffset = -$pullDown.outerHeight();
+
+      this.compiler = Handlebars.compile($('#tpi-list-item').html());
+      this.prev = this.next = this.start = options.params.start;
+      this.total = null;
+
+      this.getURL = function(params) {
+        var queries = ['callback=?'];
+        for (var key in  params) {
+          if (key !== 'start') {
+            queries.push(key + '=' + params[key]);
+          }
+        }
+        queries.push('start=');
+        return options.api + '?' + queries.join('&');
+      };
+
+      this.renderList = function(start, type) {
+        var _this = this;
+        var $el = $pullDown;
+
+        if (type === 'load') {
+          $el = $pullUp;
+        }
+
+        $.getJSON(this.URL + start).then(function(data) {
+          console.log(data);
+          _this.total = data.total;
+          var html = _this.compiler(data.events);
+          if (type === 'refresh') {
+            $list.children('li').first().before(html);
+          } else if (type === 'load') {
+            $list.append(html);
+          } else {
+            $list.html(html);
+          }
+
+          // refresh iScroll
+          setTimeout(function() {
+            _this.iScroll.refresh();
+          }, 100);
+        }, function() {
+          console.log('Error...')
+        }).always(function() {
+          _this.resetLoading($el);
+          if (type !== 'load') {
+            _this.iScroll.scrollTo(0, topOffset, 800, $.AMUI.iScroll.utils.circular);
+          }
+        });
+      };
+
+      this.setLoading = function($el) {
+        $el.addClass('loading');
+      };
+
+      this.resetLoading = function($el) {
+        $el.removeClass('loading');
+      };
+
+      this.init = function() {
+        var myScroll = this.iScroll = new $.AMUI.iScroll('#wrapper', {
+          click: true
+        });
+        // myScroll.scrollTo(0, topOffset);
+        var _this = this;
+        var pullFormTop = false;
+        var pullStart;
+
+        this.URL = this.getURL(options.params);
+        this.renderList(options.params.start);
+
+        myScroll.on('scrollStart', function() {
+          if (this.y >= topOffset) {
+            pullFormTop = true;
+          }
+
+          pullStart = this.y;
+          // console.log(this);
+        });
+
+        myScroll.on('scrollEnd', function() {
+          if (pullFormTop && this.directionY === -1) {
+            _this.handlePullDown();
+          }
+          pullFormTop = false;
+
+          // pull up to load more
+          if (pullStart === this.y && (this.directionY === 1)) {
+            _this.handlePullUp();
+          }
+        });
+      };
+
+      this.handlePullDown = function() {
+        console.log('handle pull down');
+        if (this.prev > 0) {
+          this.setLoading($pullDown);
+          this.prev -= options.params.count;
+          this.renderList(this.prev, 'refresh');
+        } else {
+          console.log('别刷了，没有了');
+        }
+      };
+
+      this.handlePullUp = function() {
+        console.log('handle pull up');
+        if (this.next < this.total) {
+          this.setLoading($pullUp);
+          this.next += options.params.count;
+          this.renderList(this.next, 'load');
+        } else {
+          console.log(this.next);
+          // this.iScroll.scrollTo(0, topOffset);
+        }
+      }
+    };
+
+    $(function() {
+      var app = new EventsList(null, {
+        api: 'https://api.douban.com/v2/event/list',
+        params: {
+          start: 100,
+          type: 'music',
+          count: 10,
+          loc: 'beijing'
+        }
+      });
+      app.init();
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+    }, false);
+  })(window.jQuery);
+</script>
+</body>
+</html>
